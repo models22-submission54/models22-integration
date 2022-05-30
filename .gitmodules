@@ -1,0 +1,6 @@
+[submodule "tools/OCL2MSFOL"]
+	path = tools/OCL2MSFOL
+	url = https://github.com/models22-submission54/OCL2MSFOL.git
+[submodule "tools/SQL2MSFOL"]
+	path = tools/SQL2MSFOL
+	url = https://github.com/models22-submission54/SQL2MSFOL.git
