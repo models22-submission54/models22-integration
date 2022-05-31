@@ -47,14 +47,17 @@ cd scripts
 
 ## Using the framework
 
-The `scripts` directory contains the `run.py` script.
-At a first glance, invoke it the following arguments:
-```
-python run.py -br -c <config_filename> -s <solver_name>
-```
 One might fine tune the script for the following purposes:
 * `run.py -b` -- builds the projects
 * `run.py -r` -- run the benchmark without building
+
+The `scripts` directory contains the `run.py` script.
+At a first time, invoke the tool with the following arguments:
+```
+python run.py -br -c <config_filename> -s <solver_name>
+```
+where `<config_filename>` is the configuration filename in the `\config` directory (without file extension)
+and `<solver_name>` is the solver of choice (i.e., either `cvc4` or `z3`).
 
 The `config` directory contains the configuration for the scripts:
 * `Example#all.json` -- sample configuration with examples that are identical to the examples in the manuscript [Proving correctness for SQL implementations of OCL constraints](). The following show a sample single testcase:
@@ -78,6 +81,23 @@ The `config` directory contains the configuration for the scripts:
             "SQL": "SELECT (SELECT name FROM Student WHERE Student_id = self) = user"
         },
 ```
+
+### Solver installation
+#### On Ubuntu/Linux:
+##### Ubuntu:
+```
+sudo apt-get update
+sudo apt-get install cvc4 z3
+```
+##### Fedora (using dnf):
+```
+sudo dnf makecache --refresh
+sudo dnf -y install cvc4 z3
+```
+#### On Windows machine:
+- z3: Download the archive folder [here](https://github.com/Z3Prover/z3/releases/tag/z3-4.8.17), unzip it and put it in the `PATH` environment.
+- cvc4: Download it [here](https://cvc4.cs.stanford.edu/downloads/builds/win64-opt/), unzip it and put it in the `PATH` environment.
+**Note**: Depends on the provided commands of these solvers, you may have to change the predefined commands for running the solver in `run.py`, i.e., [here](https://github.com/models22-submission54/OCLSQLProver/blob/main/scripts/run.py#L155) and [here](https://github.com/models22-submission54/OCLSQLProver/blob/main/scripts/run.py#L176).
 
 ### Running the tool
 
