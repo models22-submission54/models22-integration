@@ -1,0 +1,19 @@
+{
+	"Datamodel": "School.json",
+	"Timeout": 10000,
+	"OCL2MSFOL": "OCL2MSFOL",
+	"SQL2MSFOL": "SQL2MSFOL",
+	"Testcases": [
+		{
+            "context": [
+                {
+                    "name": "caller",
+                    "type": "Lecturer"
+                }
+            ],
+            "invariants": [],
+            "OCL": "caller.students->isEmpty()", 
+            "SQL": "SELECT NOT EXISTS (SELECT e.students FROM Enrolment AS e WHERE e.lecturers = caller)"
+        }
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"Datamodel": "School.json",
+	"Timeout": 10000,
+	"OCL2MSFOL": "OCL2MSFOL",
+	"SQL2MSFOL": "SQL2MSFOL",
+	"Testcases": [
+		{   
+            "context": [],
+            "invariants": [
+                "Student.allInstances()->forAll(s| not s.age.oclIsUndefined())",
+                "Lecturer.allInstances()->forAll(l| not l.age.oclIsUndefined())"
+            ],
+            "OCL": "Student.allInstances()->forAll(s|s.lecturers->forAll(l|l.age > s.age))", 
+            "SQL": "SELECT NOT EXISTS (SELECT 1 FROM (SELECT s.age, e.lecturers FROM Student AS s JOIN Enrolment AS e ON e.students = s.Student_id) AS temp JOIN Lecturer AS l WHERE temp.age >= l.age AND l.Lecturer_id = temp.lecturers)"
+        }
+	]
+}
