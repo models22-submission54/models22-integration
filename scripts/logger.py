@@ -22,7 +22,13 @@ class SubGoalManager:
             return  "Done.                                     "
 
     def getInfo(self):
-        msg = f"SubgoalC1: {self.print_status(self.subgoal1)} SubgoalC2: {self.print_status(self.subgoal2)} SubgoalC3: {self.print_status(self.subgoal3)} > {self.print_conclusion()}"
+        if self.current_subgoal > 0:
+            msg = f"SubgoalC1: {self.print_status(self.subgoal1)} "
+        if self.current_subgoal > 1:
+            msg += f"SubgoalC2: {self.print_status(self.subgoal2)} "
+        if self.current_subgoal > 2:
+             msg += f"SubgoalC3: {self.print_status(self.subgoal3)} "
+        msg += f"> {self.print_conclusion()}"
         return msg
 
     def update_status(self, id, status):
