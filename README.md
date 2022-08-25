@@ -1,5 +1,3 @@
-# models22-integration
-
 This is a repository for showcase our formal methodology of proving correctness for SQL implementations of OCL constraints
 The repository is based on this reference methodology:
 
