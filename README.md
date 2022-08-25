@@ -11,8 +11,8 @@ The repository is structured as follows:
   * `Example#i.json`: configuration of Example *i* described in the manuscript.
   * `Example#all.json`: all-in-one examples configuration.
 * `libs`: place to store jars and reference libraries.
-  * `datamodel-*.jar`: refers to the [`datamodel`](https://github.com/MoDELSVGU/datamodel) Java package.
-  * `jocl-*.jar`: refers to the [`JavaOCL`](https://github.com/MoDELSVGU/JavaOCL) Java package.
+  * `datamodel-*.jar`: refers to the [`datamodel`](https://github.com/oclsqlprover/dm2schema) Java package.
+  * `jocl-*.jar`: refers to the [`JavaOCL`](https://github.com/oclsqlprover/JavaOCL) Java package.
 * `output`: place to store auto-generated files.
 * `scripts`: includes executable scripts.
   * `install-jar.sh` installs locally the required jars in `\libs`.
@@ -29,13 +29,13 @@ The repository is structured as follows:
 The prototype requires to pull the two reference tools as submodules.
 The easiest way to do so is to execute the following `Git` command:
 ```
-git clone https://github.com/npbhoang/models22-integration.git
+git clone https://github.com/oclsqlprover/OCLSQLProver.git
 cd OCLSQLProver
 git submodule update --init --recursive
 ```
 
-The reference tools in directory `\tools` (i.e., [OCL2MSFOL](https://github.com/models22-submission54/OCL2MSFOL) and [SQL2MSFOL](https://github.com/models22-submission54/SQL2MSFOL)) use two JAR files that parse the datamodel and OCL expression to Java representation. 
-These JAR files can be downloaded [here](https://github.com/models22-submission54/dm2schema/releases/tag/v1.0) and [here](https://github.com/models22-submission54/JavaOCL/releases/tag/v1.0), and be put into `\libs` directory.
+The reference tools in directory `\tools` (i.e., [OCL2MSFOL](https://github.com/oclsqlprover/OCL2MSFOL) and [SQL2MSFOL](https://github.com/oclsqlprover/SQL2MSFOL)) use two JAR files that parse the datamodel and OCL expression to Java representation. 
+These JAR files can be downloaded [here](https://github.com/oclsqlprover/dm2schema/releases/tag/v1.0) and [here](https://github.com/oclsqlprover/JavaOCL/releases/tag/v1.0), and be put into `\libs` directory.
 You must install these dependencies into your local Maven repository before you build the reference solution.
 Assuming that Maven is in your `PATH` and that the JARs are already downloaded, you can run our script:
 ```
@@ -95,7 +95,7 @@ sudo dnf -y install cvc4 z3
 #### On Windows machine:
 - z3: Download the archive folder [here](https://github.com/Z3Prover/z3/releases/tag/z3-4.8.17), unzip it and put it in the `PATH` environment.
 - cvc4: Download it [here](https://cvc4.cs.stanford.edu/downloads/builds/win64-opt/), unzip it and put it in the `PATH` environment.
-**Note**: Depends on the provided commands of these solvers, you may have to change the predefined commands for running the solver in `run.py`, i.e., [here](https://github.com/models22-submission54/OCLSQLProver/blob/main/scripts/run.py#L155) and [here](https://github.com/models22-submission54/OCLSQLProver/blob/main/scripts/run.py#L176).
+**Note**: Depends on the provided commands of these solvers, you may have to change the predefined commands for running the solver in `run.py`, i.e., [here](https://github.com/oclsqlprover/OCLSQLProver/blob/main/scripts/run.py#L155) and [here](https://github.com/oclsqlprover/OCLSQLProver/blob/main/scripts/run.py#L176).
 
 ### Running the tool
 
